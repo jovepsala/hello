@@ -1,6 +1,6 @@
 # hello
 
-Basic example of a spacelet. 
+Basic example of a spacelet. See http://spaceify.org/wiki/doku.php?id=examples:spacelet for more information.
 
 **Installing and testing the spacelet**
 
