@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=100%, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!--  Use Spaceify's JavaScript API. -->
+	<script src="https://spaceify.net/libs/spaceify.api.js"></script>
+
+	<title>Spacelet - Hello</title>
+
+	<script>
+	var hiDiv;
+	var spacelet;
+
+	window.addEventListener("load", function()
+		{
+		hiDiv = document.getElementById("hi");
+
+		// Use the Spacelet class from Spaceify API
+		spacelet = new Spacelet();
+		
+		// Start the spacelet having unique_name "hello"
+		var hi = new Hi();
+		spacelet.start(hi, "hello");
+		}, false);
+
+	// The client-side spacelet application
+	function Hi()
+		{
+		var self = this;
+
+		// The required service
+		var service = null;
+		var serviceName = "spaceify.org/services/hello";
+
+		// This method is called if the spacelet was started succesfully
+		self.start = function()
+			{
+			// Get the service and call "hello" RPC method of the spacelet (pass href as name)
+			service = spacelet.getRequiredService(serviceName);
+			service.callRpc("hello", [window.location.href], self, hello);
+			}
+
+		// This method is called if starting the spacelet failed
+		self.fail = function()
+			{
+			hiDiv.appendChild(document.createTextNode("Failed to start the spacelet."));
+			}
+
+		// Print the response from the hello RPC call
+		var hello = function(err, response)
+			{
+			hiDiv.appendChild(document.createTextNode(err ? err.message : response));
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<div id="hi" style="font-size: 1.4em; font-weight: bold;">
+	</div>
+</body>
+
+</html>

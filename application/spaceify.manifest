@@ -1,0 +1,25 @@
+{
+  "provides_services": [
+    {
+      "service_name": "spaceify.org/services/hello",
+      "service_type": "open"
+    }
+  ],
+  "name": "Hello",
+  "unique_name": "hello",
+  "version": "1.0.0",
+  "type": "spacelet",
+  "category": "educational",
+  "start_command": "node hello.js",
+  "shared": true,
+  "origins": [
+    "spaceify.org"
+  ],
+  "short_description": "Spacelet example.",
+  "appstore_description": "Spacelet example.",
+  "developer": {
+    "name": "Spaceify Oy",
+    "url": "http://spaceify.net",
+    "email": "admin@spaceify.net"
+  }
+}
