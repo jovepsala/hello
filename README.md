@@ -1,6 +1,8 @@
-# Spacelet example
+# hello
 
-## Installing and testing the spacelet
+Basic example of a spacelet. 
+
+**Installing and testing the spacelet**
 
 Install:
 
